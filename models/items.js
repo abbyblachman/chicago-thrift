@@ -23,9 +23,12 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
       }, 
       img_url: {
-          type: DataTypes.STRING, 
+          type: DataTypes.TEXT, 
           allowNull: true, 
-      }, 
+      }
+
+    }, 
+    { timestamps: false
 
     });
   
