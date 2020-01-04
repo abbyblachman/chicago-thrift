@@ -1,30 +1,30 @@
 module.exports = function(sequelize, DataTypes) {
     var Item = sequelize.define("Item", {
       price: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: true,
         validate: {
           len: [1]
         }
       },
       category: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         len: [1]
       }, 
       name: {
           type: DataTypes.STRING, 
-          allowNull: false, 
+          allowNull: true, 
           len: [1]
       }, 
       description: {
           type: DataTypes.TEXT, 
-          allowNull: false, 
+          allowNull: true, 
           len: [1]
       }, 
       img_url: {
           type: DataTypes.STRING, 
-          allowNull: false, 
+          allowNull: true, 
       }, 
 
     });
@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
       // A Post can't be created without an Author due to the foreign key constraint
       Item.belongsTo(models.Seller, {
         foreignKey: {
-          allowNull: false
+          allowNull: true
         }
       });
     };
