@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
-    const itemContainer = $(".blog-container");
+    const itemContainer = $(".js-products");
     let items;
 
     function getItems() {
         $.get("/api/items", function(data) {
-            console.log(data);
+            //console.log(data);
             items = data;
             initializeRows(data);
             
@@ -15,13 +15,16 @@ $(document).ready(function() {
 getItems();
 
 function initializeRows(data) {
-    data.forEach(data => {
-        let item = $('<div>');
-        item.text(data.name);
-        let price = $('<div>');
-        price.text(data.price);
-        let img = $(`<div><img style="width:100px;height:100px;"src="${data.img_url}" alt = "${data.name}"/></div>`)
-    itemContainer.append(item).append(price).append(img);
+    console.log(data);
+    data.forEach(item => {
+        let img = `<div class="col-lg-6 col-md-6 item-entry mb-4">
+                <a href="#" class="product-item md-height bg-gray d-block">
+                  <img src="${item.img_url}" alt="Image" class="img-fluid">
+                </a>
+                <h2 class="item-title"><a href="#">${item.name}</a></h2>
+                <strong class="item-price">${item.price}</strong>
+              </div>`
+    itemContainer.append(img);
     })
 }
 
