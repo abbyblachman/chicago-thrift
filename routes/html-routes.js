@@ -18,15 +18,15 @@ module.exports = function(app) {
   });
 
 
-  /*
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  
+  app.get("/:id", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/shop-single.html"));
   });
 
   // blog route loads blog.html
   app.get("/blog", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/blog.html"));
-  });*/
+  });
 
 
 };

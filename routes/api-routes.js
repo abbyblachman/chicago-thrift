@@ -36,17 +36,17 @@ module.exports = function(app) {
 //       });
 //   });
 
-//   // Get route for retrieving a single post
-//   app.get("/api/posts/:id", function(req, res) {
-//     db.Post.findOne({
-//       where: {
-//         id: req.params.id
-//       }
-//     })
-//       .then(function(dbPost) {
-//         res.json(dbPost);
-//       });
-//   });
+
+  app.get("/api/item/:id", function(req, res) {
+    db.Item.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
 
   // POST route for saving a new post
 //   app.post("/api/posts", function(req, res) {
