@@ -1,5 +1,7 @@
 var mysql = require("mysql");
-const items = require("../db/data.json")
+const items = require("../db/data.json");
+const mens = require("../db/mens.json");
+const kids = require("../db/kidseed.json");
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -11,7 +13,7 @@ var connection = mysql.createConnection({
     user: "root",
 
     // Your password
-    password: "blank",
+    password: "2093ftPV",
     database: "thrift"
 });
 
@@ -19,6 +21,8 @@ connection.connect(function (err) {
     if (err) throw err;
     console.log("connected as id " + connection.threadId + "\n");
     createProduct();
+    createMens();
+    createKids();
 });
 
 function createProduct() {
@@ -28,7 +32,56 @@ function createProduct() {
         console.log(item);
         connection.query(
             "INSERT INTO items SET ?",
-            item
+            {
+              name: item.name, 
+              img_url: item.img_url, 
+              price: item.price, 
+              category: "Women"  
+            }
+            ,
+            function (err, res) {
+                if (err) throw err;
+                console.log(res.affectedRows + " product inserted!\n");
+            }
+        )
+    })
+};
+
+function createMens() {
+    console.log("Inserting a new product...\n");
+
+    mens.forEach(men => {
+        console.log(men);
+        connection.query(
+            "INSERT INTO items SET ?",
+            {
+              name: men.name, 
+              img_url: men.img_url, 
+              price: men.price, 
+              category: "Men"  
+            }
+            ,
+            function (err, res) {
+                if (err) throw err;
+                console.log(res.affectedRows + " product inserted!\n");
+            }
+        )
+    })
+};
+
+function createKids() {
+    console.log("Inserting a new product...\n");
+
+    kids.forEach(kid => {
+        console.log(kid);
+        connection.query(
+            "INSERT INTO items SET ?",
+            {
+              name: kid.name, 
+              img_url: kid.image, 
+              price: kid.price, 
+              category: "Kids"  
+            }
             ,
             function (err, res) {
                 if (err) throw err;

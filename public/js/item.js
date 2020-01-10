@@ -10,7 +10,8 @@ const itemDisplay = $('.shop-item');
     console.log(last_part);
 
         $.get("/api/item/" + last_part, function(data) {
-            const div = ` <div class="col-md-6">
+            const div = `
+            <div class="col-md-6">
             <div class="item-entry">
               <a href="#" class="product-item md-height bg-gray d-block">
                 <img src="${data.img_url}" alt="Image" class="img-fluid">
@@ -22,7 +23,7 @@ const itemDisplay = $('.shop-item');
           <div class="col-md-6 shop-item">
             <h2 class="text-black">${data.name}</h2>
             <p><strong class="text-primary h4">${data.price}</strong></p>
-            <p><a href="cart.html" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+            <p><a href="" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
 
           </div>
           <!--stop-->

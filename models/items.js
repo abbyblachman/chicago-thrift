@@ -25,6 +25,10 @@ module.exports = function(sequelize, DataTypes) {
       img_url: {
           type: DataTypes.TEXT, 
           allowNull: true, 
+      }, 
+      in_cart: {
+        type: DataTypes.BOOLEAN, 
+        allowNull: true,
       }
 
     }, 
