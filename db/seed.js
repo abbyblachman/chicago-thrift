@@ -55,9 +55,9 @@ function createMens() {
         connection.query(
             "INSERT INTO items SET ?",
             {
-              name: men.name, 
-              img_url: men.img_url, 
-              price: men.price, 
+              name: men.title, 
+              img_url: men.images, 
+              price: men.prices, 
               category: "Men"  
             }
             ,
@@ -77,7 +77,7 @@ function createKids() {
         connection.query(
             "INSERT INTO items SET ?",
             {
-              name: kid.name, 
+              name: kid.title, 
               img_url: kid.image, 
               price: kid.price, 
               category: "Kids"  
