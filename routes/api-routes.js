@@ -24,6 +24,45 @@ module.exports = function(app) {
       });
   });
 
+  app.get("/api/checkout", function(req, res) {
+    console.log('in the checkout');
+    db.Item.findAll({
+      where: {in_cart: true}
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  // app.put("/api/items/:id", function(req, res) {
+
+  //   console.log('in the put route');
+  //   db.Item.update(
+  //     req.body,
+  //     {
+  //       where: {
+  //         id: req.params.id
+  //       }
+  //     }).then(function(dbItem) {
+  //     res.json(dbItem);
+  //   });
+  // });
+
+  app.put("/api/items", function(req, res) {
+    console.log('in');
+    db.Item.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbItem) {
+        console.log('in the then');
+      res.json(dbItem);
+    });
+  });
+
+
+
 //   // Get route for returning posts of a specific category
 //   app.get("/api/posts/category/:category", function(req, res) {
 //     db.Post.findAll({
