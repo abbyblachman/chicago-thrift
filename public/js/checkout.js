@@ -2,6 +2,8 @@ $(document).ready(function() {
 
 const checkoutDisplay = $('.checkout-table');
 
+
+
 function getItems() {
 
 $.get("/api/checkout", function(data) {
@@ -15,7 +17,7 @@ $.get("/api/checkout", function(data) {
           <h2 class="h5 text-black">${item.name}</h2>
         </td>
         <td>${item.price}</td>
-        <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
+        <td><a href="#" data-id="${item.id}" class="btn btn-primary height-auto btn-sm remove">X</a></td>
       </tr>`;
       total += parseInt(item.price.replace("$", ""));
       checkoutDisplay.append(div);
@@ -25,5 +27,11 @@ $.get("/api/checkout", function(data) {
 }
 
 getItems();
+
+
+
+
+
+
 
 });
