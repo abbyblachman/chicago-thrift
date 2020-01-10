@@ -4,12 +4,14 @@ $(document).ready(function() {
     const kidCount = $('.kids-count');
     const womenCount = $('.women-count');
     const allCount = $('.all-count');
+    const cartNumber = $('.cart-number');
   
   
  let men = [];
  let women = [];
  let kids = [];
   let all = [];
+  let cartCount = [];
 
   function countCategories() {
     
@@ -28,10 +30,17 @@ $(document).ready(function() {
     data.forEach(item => {
       all.push(item);
     })
+    data.forEach(item => {
+      if (item.in_cart === true) {
+        cartCount.push(item);
+      }
+    })
     menCount.prepend(men.length);
     kidCount.prepend(kids.length);
     womenCount.prepend(women.length);
     allCount.prepend(all.length);
+    cartNumber.append(cartCount.length);
+    
 
     })
        
