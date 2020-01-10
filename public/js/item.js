@@ -32,4 +32,35 @@ const itemDisplay = $('.shop-item');
           });
     }
 getItems();
+
+$('.category').on('click', function() {
+  const category = $(this).attr('data-category');
+  console.log(category);
+  $.get("/api/items/category/" + category, function(data) {
+    console.log(data);
+    const div = `
+    <div class="col-md-6">
+    <div class="item-entry">
+      <a href="#" class="product-item md-height bg-gray d-block">
+        <img src="${data.img_url}" alt="Image" class="img-fluid">
+      </a>
+      
+    </div>
+
+  </div>
+  <div class="col-md-6 shop-item">
+    <h2 class="text-black">${data.name}</h2>
+    <p><strong class="text-primary h4">${data.price}</strong></p>
+    <p><a href="" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+
+  </div>
+  <!--stop-->
+</div>`;
+itemDisplay.html(div);
+
+  })
+
+
+})
+
 })

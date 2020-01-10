@@ -33,6 +33,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/items/category/:category", function(req, res) {
+    db.Item.findAll({
+      where: {category: req.params.category}
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
   // app.put("/api/items/:id", function(req, res) {
 
   //   console.log('in the put route');
