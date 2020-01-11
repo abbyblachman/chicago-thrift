@@ -5,7 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
-
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -23,10 +23,23 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/shop-single.html"));
   });
 
-  // blog route loads blog.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+  app.get("/signup", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("shop-all.html");
+    }
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
+
+  app.get("/login", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("shop-all.html");
+    }
+    res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
+
+
 
 
 };
