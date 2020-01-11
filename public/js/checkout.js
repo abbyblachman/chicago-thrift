@@ -18,6 +18,7 @@ $.get("/api/checkout", function(data) {
         </td>
         <td>${item.price}</td>
         <td><a href="#" data-id="${item.id}" class="btn btn-primary height-auto btn-sm remove">X</a></td>
+        <td><a href="contact.html" data-id="${item.id}" class="btn btn-primary height-auto btn-sm remove">Contact Now</a></td>
       </tr>`;
       total += parseInt(item.price.replace("$", ""));
       checkoutDisplay.append(div);
