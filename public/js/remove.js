@@ -3,15 +3,14 @@ $(document).ready(function() {
 
 
 $(document).on('click', '.remove', function() {
-    const cart_id = $(this).attr("data-cartid");
-    console.log(cart_id);
+    const item_id = $(this).attr("data-id");
     console.log('hi');
         $.ajax({
-          method: "DELETE",
-          url: "/api/cart/" + cart_id,
+          method: "PUT",
+          url: "/api/items",
+          data: {id: item_id, in_cart: false}
         })
           .then(function() {
-
             window.location.href = "/cart.html";
           });
      
