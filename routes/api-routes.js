@@ -9,6 +9,7 @@
 // Requiring our Todo model
 const db = require("../models");
 const items = require("../db/data.json");
+var passport = require("../config/passport");
 //console.log(items);
 
 
@@ -27,11 +28,16 @@ module.exports = function(app) {
   app.get("/api/checkout", function(req, res) {
     console.log('in the checkout');
     db.Item.findAll({
-      where: {in_cart: true}
+      include: [{
+        model: db.Cart,
+        where: {UserId: req.session.passport.user.id}
+      }]
     }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
+
+  
 
   app.get("/api/items/category/:category", function(req, res) {
     db.Item.findAll({
@@ -41,6 +47,34 @@ module.exports = function(app) {
     });
   });
 
+  app.delete("/api/cart/:id", function(req, res) {
+    console.log('heyyyyyyy');
+    db.Cart.destroy({
+      where: {
+        id: parseInt(req.params.id)}
+    }).then(function(dbItem) {
+      res.json(dbItem);
+    });
+  })
+
+  app.get("/api/cart", function(req, res) {
+    db.Cart.findAll({}).then(function(dbItem) {
+      res.json(dbItem);
+    });
+  });
+
+  
+
+  app.post("/api/cart", function(req, res) {
+    // console.log(req.session.passport.user.id);
+    // console.log(req.body);
+    db.Cart.create({
+      UserId: req.session.passport.user.id, 
+      ItemId: parseInt(req.body.item_id)
+    }).then(function(dbCart) {
+      res.json(dbCart);
+    });
+  });
   
   
 
@@ -72,6 +106,20 @@ module.exports = function(app) {
     });
   });
 
+  // app.put("/api/cart", function(req, res) {
+  //   console.log('in');
+  //   db.Cart.update(
+  //     req.body,
+  //     {
+  //       where: {
+  //         last_name: req.body.last_name
+  //       }
+  //     }).then(function(dbCart) {
+  //       console.log('in the then');
+  //     res.json(dbCart);
+  //   });
+  // });
+
 
 
 //   // Get route for returning posts of a specific category
@@ -96,6 +144,59 @@ module.exports = function(app) {
       .then(function(dbPost) {
         res.json(dbPost);
       });
+  });
+
+  app.get("/api/loggedin", function(req, res) {
+    if (req.session.passport) {
+      res.json(true);
+    } else {
+      res.json(false);
+    }
+  })
+
+  app.put("/api/loggedin/", function(req, res) {
+      res.json(req.session.passport === false)
+  })
+
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json(req.user);
+  });
+
+  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
+  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
+  // otherwise send back an error
+  app.post("/api/signup", function(req, res) {
+    db.User.create({
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
+  });
+
+  // Route for logging user out
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+
+  // Route for getting some data about our user to be used client side
+  app.get("/api/user_data", function(req, res) {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
   });
 
   // POST route for saving a new post
