@@ -15,9 +15,9 @@ let all = [];
 
 $.get("/api/loggedin", function(data) {
   if (data) {
-    loggedIn.html('<button class="log-out">Log out</button>')
+    loggedIn.html('<button class="log-out btn btn-outline-primary d-flex category">Log out</button>')
   } else {
-    loggedIn.html('<button><a href="index.html">Log in</a></button>')
+    loggedIn.html('<button class="btn btn-outline-primary d-flex category"><a href="index.html">Log in</a></button>')
   }
 })
 
