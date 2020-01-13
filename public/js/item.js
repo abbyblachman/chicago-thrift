@@ -25,8 +25,6 @@ const itemDisplay = $('.shop-item');
             <p><strong class="text-primary h4">${data.price}</strong></p>
             <p class="text-primary">Want to add to cart? Fill out your info:</p>
             <form class="user-info" method='POST' action='http://localhost:8080/cart.html'>
-            <div><input type="text" name="a" value="First name" id="a"></div>
-            <div><input type="text" name="b" value="Last name" id="b"></div>
               <input class="buy-now btn btn-sm height-auto px-4 py-3 btn-primar"onclick="window.location.href = 'http://localhost:8080/cart.html';" type="submit" name="g" value="Add to Cart" id="g">
             </div>
           </form>
