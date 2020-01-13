@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
@@ -41,14 +43,14 @@
         <div class="d-flex align-items-center justify-content-between">
           <div class="logo">
             <div class="site-logo">
-              <a href="index.html" class="js-logo-clone">ChicaCoat</a>
+              <a href="about.html" class="js-logo-clone">ChicaCoat</a>
             </div>
           </div>
           <div class="main-nav d-none d-lg-block">
             <nav class="site-navigation text-right text-md-center" role="navigation">
               <ul class="site-menu js-clone-nav d-none d-lg-block">
                 <li class="has-children ">
-                  <a href="index.html">Home</a>
+                  <a href="about.html">Home</a>
                   <ul class="dropdown">
                     <ul class="dropdown">
                     </ul>
@@ -56,15 +58,13 @@
               </ul>
               </li>
 
-              <li class="active"><a href="shop.html">Shop</a></li>
+              <li class="active"><a href="shop-all.html">Shop</a></li>
               <li><a href="contact.html">Contact</a></li>
               <li class="loggedIn"></li>
               </ul>
             </nav>
           </div>
           <div class="icons">
-            <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
-            <a href="#" class="icons-btn d-inline-block"><span class="icon-heart-o"></span></a>
             <a href="cart.html" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
               <span class="number cart-number"></span>
@@ -79,7 +79,7 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a
+          <div class="col-md-12 mb-0"><a href="about.html">Home</a> <span class="mx-2 mb-0">/</span> <a
               href="cart.html">Cart</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Checkout</strong>
           </div>
         </div>
@@ -88,13 +88,6 @@
 
     <div class="site-section">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-12">
-            <div class="border p-4 rounded" role="alert">
-              Returning customer? <a href="#">Click here</a> to login
-            </div>
-          </div>
-        </div>
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
             <h2 class="h3 mb-3 text-black">Billing Details</h2>
@@ -102,15 +95,8 @@
               <div class="form-group">
                 <label for="c_country" class="text-black">Country <span class="text-danger">*</span></label>
                 <select id="c_country" class="form-control">
-                  <option value="1">Select a country</option>
-                  <option value="2">bangladesh</option>
-                  <option value="3">Algeria</option>
-                  <option value="4">Afghanistan</option>
-                  <option value="5">Ghana</option>
-                  <option value="6">Albania</option>
-                  <option value="7">Bahrain</option>
-                  <option value="8">Colombia</option>
-                  <option value="9">Dominican Republic</option>
+                  <option value="1">Select a Country</option>
+                  <option value="2">United States</option>
                 </select>
               </div>
               <div class="form-group row">
@@ -149,7 +135,7 @@
                   <input type="text" class="form-control" id="c_state_country" name="c_state_country">
                 </div>
                 <div class="col-md-6">
-                  <label for="c_postal_zip" class="text-black">Posta / Zip <span class="text-danger">*</span></label>
+                  <label for="c_postal_zip" class="text-black">Postal / Zip <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="c_postal_zip" name="c_postal_zip">
                 </div>
               </div>
@@ -167,24 +153,6 @@
               </div>
 
               <div class="form-group">
-                <label for="c_create_account" class="text-black" data-toggle="collapse" href="#create_an_account"
-                  role="button" aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1"
-                    id="c_create_account"> Create an account?</label>
-                <div class="collapse" id="create_an_account">
-                  <div class="py-2">
-                    <p class="mb-3">Create an account by entering the information below. If you are a returning customer
-                      please login at the top of the page.</p>
-                    <div class="form-group">
-                      <label for="c_account_password" class="text-black">Account Password</label>
-                      <input type="email" class="form-control" id="c_account_password" name="c_account_password"
-                        placeholder="">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="form-group">
                 <label for="c_ship_different_address" class="text-black" data-toggle="collapse"
                   href="#ship_different_address" role="button" aria-expanded="false"
                   aria-controls="ship_different_address"><input type="checkbox" value="1" id="c_ship_different_address">
@@ -196,14 +164,7 @@
                       <label for="c_diff_country" class="text-black">Country <span class="text-danger">*</span></label>
                       <select id="c_diff_country" class="form-control">
                         <option value="1">Select a country</option>
-                        <option value="2">bangladesh</option>
-                        <option value="3">Algeria</option>
-                        <option value="4">Afghanistan</option>
-                        <option value="5">Ghana</option>
-                        <option value="6">Albania</option>
-                        <option value="7">Bahrain</option>
-                        <option value="8">Colombia</option>
-                        <option value="9">Dominican Republic</option>
+                        <option value="2">United States</option>
                       </select>
                     </div>
 
@@ -318,32 +279,6 @@
                     </tbody>
                   </table>
 
-                  <div class="border p-3 mb-3">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button"
-                        aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
-
-                    <div class="collapse" id="collapsebank">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as
-                          the payment reference. Your order won’t be shipped until the funds have cleared in our
-                          account.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="border p-3 mb-3">
-                    <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsecheque" role="button"
-                        aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
-
-                    <div class="collapse" id="collapsecheque">
-                      <div class="py-2">
-                        <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as
-                          the payment reference. Your order won’t be shipped until the funds have cleared in our
-                          account.</p>
-                      </div>
-                    </div>
-                  </div>
-
                   <div class="border p-3 mb-5">
                     <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsepaypal" role="button"
                         aria-expanded="false" aria-controls="collapsepaypal">Paypal</a></h3>
@@ -351,7 +286,7 @@
                     <div class="collapse" id="collapsepaypal">
                       <div class="py-2">
                         <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as
-                          the payment reference. Your order won’t be shipped until the funds have cleared in our
+                          the payment reference. Your order won’t be completed until the funds have cleared in our
                           account.</p>
                       </div>
                     </div>
@@ -373,52 +308,52 @@
     </div>
 
     <footer class="site-footer custom-border-top">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <h3 class="footer-heading mb-4">Promo</h3>
-            <a href="#" class="block-6">
-              <img src="images/about_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
-              <h3 class="font-weight-light  mb-0">Finding Your Perfect Coats This Winter</h3>
-              <p>Promo from December 15 — 25, 2020</p>
-            </a>
-          </div>
-          <div class="col-lg-5 ml-auto mb-5 mb-lg-0">
-
-            <div class="block-5 mb-5">
-              <h3 class="footer-heading mb-4">Contact Info</h3>
-              <ul class="list-unstyled">
-                <li class="address">Northwestern University Boot Camp - Chicago, IL 60611</li>
-                <li class="phone"><a href="tel://23923929210">(312) 867-5309</a></li>
-                <li class="email">emailaddress@domain.com</li>
-              </ul>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+              <h3 class="footer-heading mb-4">Promo</h3>
+              <a href="#" class="block-6">
+                <img src="images/about_1.jpg" alt="Image placeholder" class="img-fluid rounded mb-4">
+                <h3 class="font-weight-light  mb-0">Finding Your Perfect Coats This Winter</h3>
+                <p>Promo from December 15 — 25, 2020</p>
+              </a>
+            </div>
+            <div class="col-lg-5 ml-auto mb-5 mb-lg-0">
+  
+              <div class="block-5 mb-5">
+                <h3 class="footer-heading mb-4">Contact Info</h3>
+                <ul class="list-unstyled">
+                  <li class="address">Northwestern University Boot Camp - Chicago, IL 60611</li>
+                  <li class="phone"><a href="tel://23923929210">(312) 867-5309</a></li>
+                  <li class="email">emailaddress@domain.com</li>
+                </ul>
+              </div>
+            </div>
+  
+            <div class="col-md-6 col-lg-3">
+  
+  
+              <div class="block-7">
+                <form action="#" method="post">
+                  <label for="email_subscribe" class="footer-heading">Subscribe</label>
+                  <div class="form-group">
+                    <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
+                    <input type="submit" class="btn btn-sm btn-primary" value="Send">
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-
-          <div class="col-md-6 col-lg-3">
-
-
-            <div class="block-7">
-              <form action="#" method="post">
-                <label for="email_subscribe" class="footer-heading">Subscribe</label>
-                <div class="form-group">
-                  <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
-                  <input type="submit" class="btn btn-sm btn-primary" value="Send">
-                </div>
-              </form>
+          <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+              <p>
+              </p>
             </div>
+  
           </div>
         </div>
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <p>
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </footer>
-  </div>
+      </footer>
+    </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -430,7 +365,8 @@
   <script src="js/billing.js"></script>
   <script src="js/main.js"></script>
   <script src="js/index.js"></script>
-
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
 </body>
 
 </html>
