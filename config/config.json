@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "blank",
+    "password": "2093ftPV",
     "database": "thrift",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -16,11 +16,6 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": "blank",
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
     "operatorsAliases": false, 
     "use_env_variable":"JAWSDB_URL"
   }
